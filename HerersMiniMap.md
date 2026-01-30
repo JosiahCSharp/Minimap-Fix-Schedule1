@@ -9,7 +9,6 @@ Since Minimap developers are falling off the edges of the earth, I am patching t
 My Github: https://github.com/JosiahCSharp/Minimap-Fix-Schedule1/tree/main (Helpful Images on my GitHub Page)
 
 For Herer's Minimap you will need to download and use dnSpy v6.1.8 64-bit off of Github!
-Also download my dummyDLL from the github page linked above for the patching process (made so I don't get copyright striked while keeping steps at a minimum).
 
 Once downloaded, drag and drop the HererMiniMap.dll and the Il2CppScheduleOne.dll file into dnSpy.
 Next in the top bar you will se a menu that has C# selected. Click it and choose IL
