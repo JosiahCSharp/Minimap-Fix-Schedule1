@@ -29,4 +29,5 @@ Left-click the get_currentVehicle (bright orange) and then click Method MemberRe
 Change that c to a C!
 Press okay, then repeat for EVERY other instance in the file! I found 4 of them myself.
 
-Now go to File next to the dnSpy logo in the top right, then 
+Then go to the top right next to the dnSpy logo and click File>Save Method or Save all... and then click Ok!
+Now import your mod and use that minimap!
