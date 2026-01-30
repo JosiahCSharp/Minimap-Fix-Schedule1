@@ -30,3 +30,5 @@ Press okay, then repeat for EVERY other instance in the file! I found 4 of them 
 
 Then go to the top right next to the dnSpy logo and click File>Save Method or Save all... and then click Ok!
 Now import your mod and use that minimap!
+
+My Checksum after patching the .dll: 72FE61B911338AAD59ED238D8A81615E4A93D3EB842C461C213A5BC778DF6B1B
