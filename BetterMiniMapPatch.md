@@ -41,7 +41,6 @@ Double-click the file to open the code view on the right. Scroll down until you 
 ### 4. Edit IL Instructions
 Right-click on that line of code and select **Edit IL Instructions**.
 
-![Edit IL Instructions](https://i.ibb.co/39qC4rK7/image.png)
 
 ### 5. Modify the Member Reference
 Look for Index **#200** and **#208** on the left. On the right side, you will see `get_currentVehicl...`.
