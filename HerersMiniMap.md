@@ -49,7 +49,7 @@ The issue is simple: recent game updates renamed the function from `get_currentV
 
 ![Edit IL Instruction](https://github.com/user-attachments/assets/d9c7d4de-5f9e-49ec-b13e-f41f6af53f0e)
 
-**Repeat this process for EVERY instance in the file.** (I found 4 instances total that needed patching).
+**Repeat this process for EVERY instance in the moveNext() function.** (I found 4 instances total that needed patching). --> Functions are purple rectangles in the file tree btw
 
 ### 6. Save and Finish
 1.  Go to **File** > **Save Module...** or **Save All...**.
