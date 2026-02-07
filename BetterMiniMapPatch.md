@@ -1,61 +1,58 @@
+# Fix for BetterMiniMap (and other Minimap Mods)
 
-My post on NexusMods - BetterMiniMap
+Since the original mod developers are currently unresponsive and updates have ceased, I have found a solution for the recent issues plaguing minimap mods.
 
-Since the mod devs wont respond to my DMs on nexus and they don't bother to update their mods I have a solution for you all!
-NEW FIX - For any minimap mod a new issue has arisen! the previously named currentVehicle function was renamed to CurrentVehicle in the code. Any mod w/o a if statement/jump to go to the player position incase this didn't show up started not moving the characters position.
+## ⚠️ The Issue
+A new update has caused an issue for many minimap mods. The function previously named `currentVehicle` was renamed to `CurrentVehicle` (capitalized) in the game code. 
 
-To fix this for now you can use an app called DnSpy (C# Decompiler, IL Editor!)
-DnSpy is archived but easily accessible on GitHub (searchable via google)
-Download the latest x64 bit release (right-hand side, lower part of the webpage) 
-Run the .exe file inside of the folder (after you extract the release)
+Any mod that does not have a failsafe (like an if/jump statement to default to player position) will fail to track the character's movement if it relies on the old function name.
 
-Before you continue, shut down Schedule I, and make a copy of the BetterMiniMap.dll in another folder.
+---
 
-Then drag and drop the BetterMiniMap.dll to the Assembly Explorer on the left hand side!
-https://i.ibb.co/h1Z1HC5j/image.png
+## 🛠️ Prerequisites
+To fix this, you will need a C# Decompiler/IL Editor.
 
-Next we will navigate to the UpdateMinimap() function!
-https://i.ibb.co/99mg3qhJ/image.png
+1.  **Download DnSpy:** This tool is archived but easily accessible via a GitHub search.
+2.  **Version:** Download the latest **x64 bit release** (usually found on the right-hand side of the GitHub releases page).
+3.  **Install:** Extract the release and run the `.exe` file.
 
-To get there open the drop down menu as follows:
-BetterMiniMap>BetterMiniMap.dll>BetterMiniMap>MiniMapHandler>Update Minimap (in orange!)
+> **❗ Important:** Before proceeding, ensure the game/application is shut down. **Make a backup copy** of your `BetterMiniMap.dll` in a safe folder before editing.
 
-Double click that file to open it on the right hand side (top)!
-Then scroll down until you see currentVehicle (line 51 -> left hand side in blue of the viewer)
-https://i.ibb.co/S73HF27n/image.png
+---
 
-Right click that line and select Edit IL Instructions!
-https://i.ibb.co/39qC4rK7/image.png
+## 📝 Step-by-Step Guide
 
-Next look for Index #200 and #208 on the left, if you look to the right you will see get_currentVehicl...
-https://i.ibb.co/zV9QRc1d/image.png
+### 1. Load the Assembly
+Open DnSpy. Drag and drop the `BetterMiniMap.dll` into the **Assembly Explorer** pane on the left-hand side.
 
-Click on the orange get_currentVehicl... text and then "Method MemberRef"
-https://i.ibb.co/GDV2SrS/image.png
+![Assembly Explorer](https://i.ibb.co/h1Z1HC5j/image.png)
 
-A dialog menu will popup! Now look at the Name provided: get_currentVehicle
-https://i.ibb.co/kVr5LjS5/image.png
+### 2. Locate the Function
+Navigate through the dropdown menu to find the update logic:
+`BetterMiniMap` > `BetterMiniMap.dll` > `BetterMiniMap` > `MiniMapHandler` > **`Update Minimap`** (highlighted in orange).
 
-Click it and change the "c" to "C" (capitalize it man), then press "Ok".
-Repeat for the other one as well.
-https://i.ibb.co/3m9B0Fq4/image.png (it should look like this now)
+![Update Minimap Function](https://i.ibb.co/99mg3qhJ/image.png)
 
-Now press OK at the bottom of the menu with the IL Code!
+### 3. Find the Variable
+Double-click the file to open the code view on the right. Scroll down until you see `currentVehicle` (around **Line 51**).
 
-Now the C# code (before the IL Menu) should show CurrentVehicle and NOT currentVehicle, if it does repeat those steps again CLOSELY.
+![Line 51 Code View](https://i.ibb.co/S73HF27n/image.png)
 
-Lastly, go to the File tab in the top left of the app (next to the logo), then click Save All..., then click OK when the dialog window shows.
-https://ibb.co/JFdVC9Sy
+### 4. Edit IL Instructions
+Right-click on that line of code and select **Edit IL Instructions**.
 
-Now replace your old .dll with the modified one! Load back up the game, and see if it works (it did for me, I tested it twice!)
+![Edit IL Instructions](https://i.ibb.co/39qC4rK7/image.png)
 
-FOR OTHER MODS/MINIMAPS: 
-Load the dll, if all you see is PE blah blah blah and no branchable functions/classes when you load the .dll then try the 64bit version, otherwise its not worth the time, just use this one (PE Header shows i386 - 32 bit dll)
+### 5. Modify the Member Reference
+Look for Index **#200** and **#208** on the left. On the right side, you will see `get_currentVehicl...`.
 
-If you are using a different minimap you can use the search tool in the bottom right of DnSpy to find it!
-You can search for "movement" or "vehicle" or "PlayerMovement" string
-https://i.ibb.co/qL1T4H3J/image.png
+![IL Indices](https://i.ibb.co/zV9QRc1d/image.png)
 
-Then right click the entry, click analyze, click the drop down for readby. It will probaby show something like NameOfMod.MiniMapSomething.UpdateMap or a similiar orange colored function. Search that function for "currentVehicle" and follow the above steps I provided.
+Click on the orange `get_currentVehicl...` text. A menu will appear; select **Method MemberRef**.
 
-If this helped you fix your minimap please re-share this with the names of the functions and where you went in the .dll file to find the "currentVehicle" entry and rename it!
+![Method MemberRef](https://i.ibb.co/GDV2SrS/image.png)
+
+### 6. Capitalize the Name
+A dialog menu will appear showing the Name: `get_currentVehicle`.
+
+Change the lowercase
