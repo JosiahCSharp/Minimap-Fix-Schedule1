@@ -1,5 +1,5 @@
 # Fix for Herer's Minimap (Schedule 1)
-
+(Original Post on NexusMods website)
 With the original minimap developers no longer active, recent updates to *Schedule 1* have broken functionality. I am releasing patches and guides to get these working again on newer versions of the game.
 
 **🔗 GitHub Repository:** [JosiahCSharp/Minimap-Fix-Schedule1](https://github.com/JosiahCSharp/Minimap-Fix-Schedule1/tree/main)
