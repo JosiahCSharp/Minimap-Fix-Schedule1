@@ -34,7 +34,7 @@ In the **Assembly Explorer**, follow this exact path:
 ### 4. Edit the MoveNext Method
 Inside `<UpdateMinimap>d__146`, double-click on **`MoveNext()`**.
 
-The IL code will appear on the right. Scroll down to lines **99** and **108** (approximate). You are looking for instructions referencing `get_currentVehicle` (highlighted in orange).
+The IL code will appear on the right. Scroll down to lines **99** and **108** (and two other duplicate lines). You are looking for instructions referencing `get_currentVehicle` (highlighted in orange).
 
 ![IL Code View](https://github.com/user-attachments/assets/52f70e2d-816a-4e83-b15f-337cd9ec5f09)
 
